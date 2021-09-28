@@ -1,0 +1,103 @@
+button
+  background: none
+  border: none
+  cursor: pointer
+
+.btn
+  height: $mob-button-height
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 12px
+
+  &-main
+    background: $orangeDark
+    border: 1px solid $orangeDark
+    border-radius: 12px
+
+  h3
+    color: $white
+
+  .icon-btn
+    width: 20px
+    height: 20px
+    margin: 6px
+    filter: invert(1)
+
+  &:hover
+    transition: ease 0.3s
+    background-color: $orangeHover
+    border-color: $orangeHover
+
+.btn-ghost
+  background: none
+  border: 2px solid white
+  color: white
+  border-radius: 12px
+
+  h3
+    color: $red
+    text-transform: capitalize
+
+  &:hover
+    cursor: pointer
+    transition: ease 0.3s
+    background-color: #0000001c
+    border-color: $white
+
+    h3
+      color: $orangeDark
+
+    svg path
+      fill: $orangeDark
+
+.btn-140
+  width: 140px
+
+.btn-select
+  cursor: pointer
+  height: 100%
+  padding: 0
+  color: inherit
+  border: none
+  padding-right: 20px
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  background: url(https://clecardona.com/npa/icns/chevron-down-white.svg) no-repeat right
+
+  text-align: center
+  font-size: 25px
+
+.pill
+  height: 25px
+  cursor: default
+
+  &:hover
+    color: $red
+    border-color: $red
+
+  h3
+    font-size: 14px
+    margin-left: 3px
+    // padding: 0 12px;
+    &:hover
+      color: $red
+
+input
+  border: 1px $black solid
+  height: 30px
+  border-radius: 30px
+  background-color: transparent
+
+input[type="text"],
+input[type="email"]
+  background-color: $grayLight
+
+input[type="submit"]
+  color: $white
+
+.btn-send
+  &:disabled
+    background: rgb(228, 228, 228)
+    border-color: rgb(228, 228, 228)

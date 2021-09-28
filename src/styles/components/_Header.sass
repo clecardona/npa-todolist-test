@@ -1,0 +1,44 @@
+header
+    background: $orangeDark
+
+    .header-container
+        height: $header-height
+        display: grid
+        grid-template-columns: $header-height 1fr min-content
+        align-items: center
+        justify-items: center
+        color: $white
+
+        width: 100%
+        max-width: $tabletBreakpoint
+        margin: auto
+        @media screen and (min-width: $desktopBreakpoint)
+            max-width: $desktopBreakpoint
+
+    :nth-child(3)
+        justify-self: end
+        text-align: right
+
+    .header-title
+        height: min-content
+        justify-self: start
+
+        display: grid
+        grid-template-rows: min-content min-content
+        margin: 0
+        h2
+            text-transform: uppercase
+            margin-bottom: -3px
+
+        h4
+            text-transform: capitalize
+            font-weight: 200
+            margin-top: -3px
+
+    img
+        border: 1px solid white
+        border-radius: 40px
+        padding: 4px
+
+        height: 40px
+        width: 40px

@@ -1,0 +1,51 @@
+.section-parcels
+    margin: 0.8rem
+    width: 100%
+
+    span
+        display: grid
+        grid-template-columns: 1fr
+        gap: 12px
+        @media screen and (min-width:$tabletBreakpoint)
+            max-width: 1200px
+            grid-template-columns: repeat(2,1fr)
+        @media screen and (min-width:$desktopBreakpoint)
+            grid-template-columns: repeat(3,1fr)
+
+    article
+        //margin: 0.8rem 0
+        padding: 0.8rem
+        background: $grayLight
+        border-radius: 8px
+        height: minmax(min-content,180px)
+
+        @include grid-centered
+        grid-template-columns: 1fr max-content
+        grid-template-rows: repeat(4,1fr)
+        grid-template-areas: "title title " "status status" "eta button" "location button"
+
+        .title
+            grid-area: title
+
+        .status
+            grid-area: status
+            background: rgba(255,255,255,0.5)
+            border-radius: 8px
+            padding: 4px 8px
+
+            display: grid
+            grid-template-columns: 1fr 140px
+            p
+                text-align: center
+                font-weight: 300
+
+        .eta
+            grid-area: eta
+            padding: 4px 8px
+        .location
+            grid-area: location
+            padding: 4px 8px
+        button
+            grid-area: button
+            align-self: end
+            margin-bottom: 8px

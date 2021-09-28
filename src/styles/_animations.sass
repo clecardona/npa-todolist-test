@@ -1,0 +1,26 @@
+/* list appears */
+
+//Initial state
+.fade-down-appear
+  transform: translateY(-30px) scaleY(0.9)
+  opacity: 0
+
+.fade-up-appear
+  transform: translateY(30px)
+  opacity: 0
+
+.fade-in-appear
+  filter: grayscale(1)
+  opacity: 0
+
+//Final state
+.fade-down-appear-active,
+.fade-up-appear-active
+  opacity: 1
+  transform: translateY(0px) scaleY(1)
+  transition: ease 400ms
+
+.fade-in-appear-active
+  filter: grayscale(0)
+  opacity: 1
+  transition: ease 400ms
