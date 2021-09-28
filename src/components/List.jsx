@@ -1,26 +1,34 @@
 //External imports
-import React, { useState } from "react";
+import React from "react";
 
 // Local imports
 
-export default function List({ todos }) {
+import Checkbox from "./shared/Checkbox";
+import { toggleTodo } from "../utils/task";
+
+export default function List({ todos, setReload }) {
   // States
 
   //Methods
 
-  return (
-    <>
-      <section className="shopping_list">
-        <>
-          <h1>My Todo-List</h1>
-          <SortMenu />
-          <div className="list-container">
-            <ul></ul>
-          </div>
-        </>
+  const Items = todos.map((item) => {
+    return (
+      <li key={item.id}>
+        <h4 className={item.checked && "done"}>{item.title}</h4>
+        <Checkbox
+          checked={item.checked}
+          onChange={() => {
+            toggleTodo(item);
+            setReload();
+          }}
+        />
+      </li>
+    );
+  });
 
-        <ButtonsMenu />
-      </section>
-    </>
+  return (
+    <section className="section-list">
+      {todos.length > 0 && <ul>{Items}</ul>}
+    </section>
   );
 }

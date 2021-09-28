@@ -11,11 +11,11 @@ button
   padding: 0 12px
 
   &-main
-    background: $orangeDark
-    border: 1px solid $orangeDark
-    border-radius: 12px
+    background: $red
+    border: 1px solid $red
+    border-radius: 8px
 
-  h3
+  h4
     color: $white
 
   .icon-btn
@@ -26,33 +26,48 @@ button
 
   &:hover
     transition: ease 0.3s
-    background-color: $orangeHover
-    border-color: $orangeHover
+    background-color: $redDark
+    border-color: $redDark
 
 .btn-ghost
   background: none
-  border: 2px solid white
+  border: 1px solid $red
   color: white
-  border-radius: 12px
+  border-radius: 8px
+  cursor: pointer
 
-  h3
+  h4
     color: $red
     text-transform: capitalize
 
   &:hover
-    cursor: pointer
-    transition: ease 0.3s
-    background-color: #0000001c
-    border-color: $white
 
-    h3
-      color: $orangeDark
+    transition: ease 0.3s
+    background-color: transparent
+    border-color: $redDark
+
+    h4
+      color: $redDark
 
     svg path
-      fill: $orangeDark
+      fill: $redDark
+
+.btn-sort
+  h4
+    color: $red
+    border-bottom: 1px transparent solid
+
+  &:hover
+    background: none
+    h4
+      border-bottom: 1px $red solid
+      font-weight: 200
 
 .btn-140
   width: 140px
+
+.btn-300
+  width: 300px
 
 .btn-select
   cursor: pointer
@@ -84,12 +99,6 @@ button
     &:hover
       color: $red
 
-input
-  border: 1px $black solid
-  height: 30px
-  border-radius: 30px
-  background-color: transparent
-
 input[type="text"],
 input[type="email"]
   background-color: $grayLight
@@ -101,3 +110,20 @@ input[type="submit"]
   &:disabled
     background: rgb(228, 228, 228)
     border-color: rgb(228, 228, 228)
+
+.checkbox
+  cursor: pointer
+
+  label
+    //height: 20px
+    //width: 20px
+    //border: 2px white solid
+    //border-radius: 20px
+    //background: blue
+
+  input:checked
+    background: red
+
+  input
+
+    //display: none
