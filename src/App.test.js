@@ -89,7 +89,23 @@ test("task-done presence after clicking the view tasks done button", () => {
 
 /** BUTTON TESTS **/
 
-//user clicks on "Add a Task"
+//user clicks on "Add a Task" should open modal
+test("open modal", () => {
+  const fakeLocalStorageData = todos;
+  Storage.prototype.getItem = jest.fn(() => {
+    return JSON.stringify(fakeLocalStorageData);
+  });
+  const modal = document.createElement("div");
+  modal.setAttribute("id", "modal");
+  document.body.appendChild(modal);
+  render(<App />);
+
+  const buttonElement = screen.getByText(/add a task/i);
+  fireEvent.click(buttonElement);
+
+  const btnClose = screen.getByText(/close/i);
+  expect(modal).toContainElement(btnClose);
+});
 // user clicks on "Clear List"
 // user clicks on "Check item"
 // user clicks on "Sort by title"
