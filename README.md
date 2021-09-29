@@ -1,6 +1,6 @@
 # Todolist (tested)
 
-![img](https://cdn.dribbble.com/users/1803434/screenshots/3876906/media/159a7a513a4cb9c099bf09cada26e6a5.jpg?compress=1&resize=400x300)
+![img](https://cdn.dribbble.com/users/1803434/screenshots/3876906/media/159a7a513a4cb9c099bf09cada26e6a5.jpg?compress=1&resize=410x300)
 
 [![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
