@@ -9,8 +9,8 @@ import { toggleTodo } from "../utils/task";
 export default function List({ todos, setReload }) {
   const Items = todos.map((item) => {
     return (
-      <li key={item.id}>
-        <h4 className={item.checked ? "done" : ""}>{item.title}</h4>
+      <li key={item.id} className={item.checked ? "done" : ""}>
+        <h4>{item.title}</h4>
         <Checkbox
           checked={item.checked}
           onChange={() => {
