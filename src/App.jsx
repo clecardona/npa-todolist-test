@@ -17,8 +17,6 @@ import {
 import Filter from "./components/Filter";
 
 export default function App() {
-  //localStorage.clear();
-
   // States
   const [todos, setTodos] = useState([]);
   const [reload, setReload] = useState(false);
@@ -32,46 +30,52 @@ export default function App() {
     setTodos(JSON.parse(rawData));
   }, [reload, rawData, sorting]);
 
-  //console.log("az", alphabeticalTodos);
-  //console.log(todos);
-
-  return (
-    <div className="App">
-      {todos === null || undefined ? (
+  if (todos === null || undefined) {
+    return (
+      <main>
+        <WelcomeScreen setReload={() => setReload(!reload)} />
+      </main>
+    );
+  } else {
+    return (
+      <div className="App">
+        <button
+          className="btn btn-float"
+          onClick={() => {
+            localStorage.clear();
+            setReload(!reload);
+          }}
+        >
+          Clear localhost
+        </button>
         <main>
-          <WelcomeScreen setReload={() => setReload(!reload)} />
-        </main>
-      ) : (
-        <>
-          <main>
-            <div className="screen-main">
-              <h1>My Todo List</h1>
-              <Sorter sorting={sorting} setSorting={setSorting} />
+          <div className="screen-main">
+            <h1>My Todo List</h1>
+            <Sorter sorting={sorting} setSorting={setSorting} />
+            <List
+              todos={
+                sorting === "title"
+                  ? sortByTitle(getTodo(todos))
+                  : sortByTimestampOlderFirst(getTodo(todos))
+              }
+              setReload={() => setReload(!reload)}
+            />
+            <SectionButtons setReload={() => setReload(!reload)} />
+            <Filter active={viewDone} setActive={setViewDone} />
+            {viewDone && (
               <List
                 todos={
                   sorting === "title"
-                    ? sortByTitle(getTodo(todos))
-                    : sortByTimestampOlderFirst(getTodo(todos))
+                    ? sortByTitle(getDone(todos))
+                    : sortByTimestampOlderFirst(getDone(todos))
                 }
                 setReload={() => setReload(!reload)}
               />
-              <SectionButtons setReload={() => setReload(!reload)} />
-              <Filter active={viewDone} setActive={setViewDone} />
-              {viewDone && (
-                <List
-                  todos={
-                    sorting === "title"
-                      ? sortByTitle(getDone(todos))
-                      : sortByTimestampOlderFirst(getDone(todos))
-                  }
-                  setReload={() => setReload(!reload)}
-                />
-              )}
-            </div>
-          </main>
-          <Footer />
-        </>
-      )}
-    </div>
-  );
+            )}
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 }
