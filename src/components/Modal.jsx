@@ -4,9 +4,13 @@ import Button from "./shared/Button";
 import FormItem from "./shared/FormItem";
 import form from "../assets/form.json";
 import { addTask } from "../utils/task";
+import { validateTitle } from "../utils/formValidation";
 
 export default function Modal({ isOpen, onClose, setReload }) {
   const [todo, setTodo] = useState("");
+
+  const isTitleValid = validateTitle(todo);
+  console.log(isTitleValid);
 
   if (!isOpen) return null;
   return reactDom.createPortal(
@@ -14,7 +18,6 @@ export default function Modal({ isOpen, onClose, setReload }) {
       <div className="modal-overlay" onClick={onClose} />
 
       <div className="modal">
-        {todo}
         <form
           onSubmit={() => {
             addTask(todo);
@@ -23,7 +26,7 @@ export default function Modal({ isOpen, onClose, setReload }) {
           <FormItem
             settings={form[0].settings}
             hook={[todo, setTodo]}
-            isValid={true}
+            isValid={isTitleValid}
           />
 
           <section className="section-buttons">
@@ -34,6 +37,7 @@ export default function Modal({ isOpen, onClose, setReload }) {
               className="btn btn-main btn-140"
               type="submit"
               value=" Add a Task"
+              disabled={!isTitleValid}
             />
           </section>
         </form>

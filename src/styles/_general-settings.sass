@@ -15,20 +15,9 @@ html
   color: $white
 
 main
-
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-
   min-height: calc(100vh - $footer-height)
   width: 100%
-  @include flex-full-centered
-  @media screen and (min-width: $tabletBreakpoint)
-    max-width: $tabletBreakpoint
-    margin: auto
-  @media screen and (min-width: $desktopBreakpoint)
-    max-width: $desktopBreakpoint
+
 ul,
 li,
 table,

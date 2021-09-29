@@ -14,7 +14,7 @@ export default function List({ todos, setReload }) {
   const Items = todos.map((item) => {
     return (
       <li key={item.id}>
-        <h4 className={item.checked && "done"}>{item.title}</h4>
+        <h4 className={item.checked ? "done" : ""}>{item.title}</h4>
         <Checkbox
           checked={item.checked}
           onChange={() => {
