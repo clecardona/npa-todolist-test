@@ -33,7 +33,7 @@ export default function App() {
   }, [reload, rawData, sorting]);
 
   //console.log("az", alphabeticalTodos);
-  console.log(todos);
+  //console.log(todos);
 
   return (
     <div className="App">
@@ -46,7 +46,7 @@ export default function App() {
           <main>
             <div className="screen-main">
               <h1>My Todo List</h1>
-              <Sorter setSorting={setSorting} />
+              <Sorter sorting={sorting} setSorting={setSorting} />
               <List
                 todos={
                   sorting === "title"
@@ -69,6 +69,7 @@ export default function App() {
               )}
             </div>
           </main>
+          <Footer />
         </>
       )}
     </div>

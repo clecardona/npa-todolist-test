@@ -1,30 +1,104 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
-// Arrange - Act - Assert
+/** MOCKUP TODOS **/
+const todos = [
+  {
+    id: 1632898930037,
+    title: "dance in circle",
+    timestamp: 1632898930037,
+    checked: false,
+  },
+  {
+    id: 1632898963662,
+    title: "run fast",
+    timestamp: 1632898963662,
+    checked: true,
+  },
+  {
+    id: 1632900398536,
+    title: "jump high",
+    timestamp: 1632900398536,
+    checked: false,
+  },
+];
 
-test("renders learn react link", () => {
-  render(<App />);
-  const greetingElement = screen.getByText(/welcome/i);
-  expect(greetingElement).toBeInTheDocument();
-});
+/** LIST TESTS **/
 
-/**
- * LIST TESTS
- */
-test("The local storage key does not have information (returns 0 items)", () => {
+test("The local storage has no data, first connexion to the app", () => {
   // Arrange
-  const fakeLocalStorageData = [];
+  const fakeLocalStorageData = null;
   Storage.prototype.getItem = jest.fn(() => {
-    return JSON.stringify(fakeLocalStorageData); // []
+    return JSON.stringify(fakeLocalStorageData);
   });
   render(<App />);
   // Act
-  const errorMessage = screen.getByText(/sorry no items found/i);
+  const greetingMessage = screen.getByText(/welcome/i);
   // Assert
+  expect(greetingMessage).toBeInTheDocument();
+});
+
+test("The local storage has an empty list", () => {
+  const fakeLocalStorageData = [];
+  Storage.prototype.getItem = jest.fn(() => {
+    return JSON.stringify(fakeLocalStorageData);
+  });
+  render(<App />);
+
+  const errorMessage = screen.getByText(/sorry no items found/i);
+
   expect(errorMessage).toBeInTheDocument();
 });
 
-/**
- * FORM TESTS
- */
+test("to-do presence", () => {
+  const fakeLocalStorageData = todos;
+
+  Storage.prototype.getItem = jest.fn(() => {
+    return JSON.stringify(fakeLocalStorageData);
+  });
+  render(<App />);
+
+  const todo = screen.getByText(/jump high/i);
+  expect(todo).toBeInTheDocument();
+});
+
+test("task-done absence", () => {
+  const fakeLocalStorageData = todos;
+
+  Storage.prototype.getItem = jest.fn(() => {
+    return JSON.stringify(fakeLocalStorageData);
+  });
+  render(<App />);
+  const taskDone = screen.queryByText(/run fast/i);
+  expect(taskDone).toBeNull();
+});
+
+test("task-done presence after clicking the view tasks done button", () => {
+  const fakeLocalStorageData = todos;
+  Storage.prototype.getItem = jest.fn(() => {
+    return JSON.stringify(fakeLocalStorageData);
+  });
+  render(<App />);
+
+  const buttonElement = screen.getByText(/view tasks done/i);
+  fireEvent.click(buttonElement);
+
+  const taskDone = screen.getByText(/run fast/i);
+  expect(taskDone).toBeInTheDocument();
+});
+
+/** BUTTON TESTS **/
+
+//user clicks on "Add a Task"
+// user clicks on "Clear List"
+// user clicks on "Check item"
+// user clicks on "Sort by title"
+// user clicks on "Sort by date added""
+
+/** FORM TESTS **/
+
+// user enter "" as title
+// user enter " " as title (a space)
+// user enter "ee" as title (2 letters only)
+
+//

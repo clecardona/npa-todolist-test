@@ -8,9 +8,7 @@ import { validateTitle } from "../utils/formValidation";
 
 export default function Modal({ isOpen, onClose, setReload }) {
   const [todo, setTodo] = useState("");
-
   const isTitleValid = validateTitle(todo);
-  console.log(isTitleValid);
 
   if (!isOpen) return null;
   return reactDom.createPortal(

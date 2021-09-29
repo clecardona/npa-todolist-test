@@ -57,9 +57,10 @@ button
     color: $red
     border-bottom: 1px transparent solid
 
-  &:hover
+  &:hover,&-active
     background: none
     h4
+      color: $red
       border-bottom: 1px $red solid
       font-weight: 200
 
@@ -110,11 +111,6 @@ input[type="submit"]
     border-color: $grayDark
     color: $grayLight
     text-decoration: line-through
-
-.btn-send
-  &:disabled
-    background: rgb(228, 228, 228)
-    border-color: rgb(228, 228, 228)
 
 .checkbox
   cursor: pointer

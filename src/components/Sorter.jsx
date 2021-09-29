@@ -1,19 +1,21 @@
-//External imports
+import React from "react";
 import Button from "./shared/Button";
 
-export default function Sorter({ setSorting }) {
+export default function Sorter({ sorting, setSorting }) {
+  //const [isActive, setIsActive] = useState(false);
+
   return (
     <section className="section-sort">
       <Button
-        type="btn-sort"
+        type={`btn-sort${sorting === "title" ? "-active" : ""}`}
         onClick={() => {
           setSorting("title");
         }}
       >
-        Title
+        A-Z
       </Button>
       <Button
-        type="btn-sort"
+        type={`btn-sort${sorting === "timestamp" ? "-active" : ""}`}
         onClick={() => {
           setSorting("timestamp");
         }}
