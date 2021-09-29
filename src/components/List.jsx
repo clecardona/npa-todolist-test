@@ -7,10 +7,6 @@ import Checkbox from "./shared/Checkbox";
 import { toggleTodo } from "../utils/task";
 
 export default function List({ todos, setReload }) {
-  // States
-
-  //Methods
-
   const Items = todos.map((item) => {
     return (
       <li key={item.id}>
@@ -29,6 +25,7 @@ export default function List({ todos, setReload }) {
   return (
     <section className="section-list">
       {todos.length > 0 && <ul>{Items}</ul>}
+      {todos.length === 0 && <p className="empty">Sorry no items found</p>}
     </section>
   );
 }
