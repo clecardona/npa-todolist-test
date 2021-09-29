@@ -2,8 +2,6 @@ import React from "react";
 import Button from "./shared/Button";
 
 export default function Sorter({ sorting, setSorting }) {
-  //const [isActive, setIsActive] = useState(false);
-
   return (
     <section className="section-sort">
       <Button
