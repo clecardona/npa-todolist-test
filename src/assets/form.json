@@ -4,8 +4,8 @@
     "reference": "titleSettings",
     "settings": {
       "type": "text",
-      "label": "Todo:",
-      "placeholder": "What to do ?",
+      "label": "New todo:",
+      "placeholder": "Tell me what to do ?",
       "alert": "Please enter a valid todo ( > 3 characters)"
     }
   },

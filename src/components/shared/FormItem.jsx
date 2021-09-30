@@ -9,7 +9,7 @@ export default function FormItem({ settings, hook, isValid }) {
   return (
     <label>
       <div className="label-header">
-        <h4>{label}</h4>
+        <h3>{label}</h3>
         {displayError && <p className="verif">{alert}</p>}
       </div>
 

@@ -16,9 +16,9 @@
   left: 50%
   transform: translate(-50%, -50%)
   border-radius: 12px
-  padding: 12px
+  padding: 12px 12px 24px 12px
 
-  width: 300px
+  width: 320px
   //height: 200px
 
   z-index: 1000
@@ -31,14 +31,20 @@
       margin: 12px 0
       .label-header
         height: 45px
-      input
+        margin: 0 6px
+
+      input[type=text]
         cursor: pointer
         border: none
-        width: 100%
-        background: #e2e2e2
-      input[type=text]
-        padding: 2px 12px
+        background: $grayMedium
+        margin: 0 6px
+        width: 320px - 24px - 12px
+        height: 30px
+        padding: 0 12px
         border-radius: 4px
+        &:placeholder
+          color: orange
+
       input[type=submit]
         cursor: pointer
 

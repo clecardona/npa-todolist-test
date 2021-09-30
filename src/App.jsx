@@ -31,11 +31,7 @@ export default function App() {
   }, [reload, rawData, sorting]);
 
   if (todos === null || undefined) {
-    return (
-      <main>
-        <WelcomeScreen setReload={() => setReload(!reload)} />
-      </main>
-    );
+    return <WelcomeScreen setReload={() => setReload(!reload)} />;
   } else {
     return (
       <div className="App">

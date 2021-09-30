@@ -100,27 +100,24 @@ button
     &:hover
       color: $red
 
-input[type="text"],
-input[type="email"]
-  background-color: $grayLight
-
 input[type="submit"]
   color: $white
   &:disabled
-    background: $grayDark
-    border-color: $grayDark
-    color: $grayLight
+    background: $grayMedium
+    border-color: $grayMedium
+    color: $grayDark
     text-decoration: line-through
 
 .btn-float
   background: white
   position: fixed
-  width: 150px
-  bottom: 100px
-  opacity: 0.3
-  border-radius: 0 8px 8px 0
+  width: max-content
+  right: 0
+  opacity: 0.1
+  border-radius: 0 0 0 8px
+  height: 22px
   &:hover
-    opacity: 1
+    opacity: 0.5
 
 .btn-icon
   h4
@@ -129,12 +126,15 @@ input[type="submit"]
       margin: 0 7px
 
 .checkbox
-  cursor: pointer
   $size: 20px
+  $color: $white
+
+  cursor: pointer
+
   height: $size
   width: $size
   border-radius: $size
-  border: 2px solid $red
+  border: 2px solid $color
   padding: 3px
 
   label
@@ -145,7 +145,7 @@ input[type="submit"]
     border-radius: $size
     border: 2px solid transparent
     &:hover
-      background: $red
+      background: $color
 
   input
     display: none
