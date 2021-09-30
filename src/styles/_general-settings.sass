@@ -16,8 +16,11 @@ html
   color: $white
 
 main
-  min-height: calc(100vh - $footer-height)
-  width: 100%
+  min-height: calc(100vh - $footer-height - $safari-menu-height)
+  @media only screen and (min-width: $desktopBreakpoint)
+    min-height: calc(100vh - $footer-height )
+
+    width: 100%
 
 ul,
 li,
