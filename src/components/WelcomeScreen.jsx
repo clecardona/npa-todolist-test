@@ -3,8 +3,9 @@ import Button from "./shared/Button";
 import welcomeImg from "../assets/img/welcome.svg";
 import Modal from "./Modal";
 
-export default function Welcome({ setReload }) {
+export default function Welcome({ hook }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [reload, setReload] = hook;
 
   return (
     <section className="section-welcome">
@@ -12,11 +13,11 @@ export default function Welcome({ setReload }) {
 
       <h2>Welcome!</h2>
       <p>
-        Oganize your daily routines with Todolist. Free your mind. Have peace of
-        mind by adding all your tasks to your to-do list (wherever you are or
-        whatever device you use). Todolist gives you the confidence that
-        everything’s organized and accounted for, so you can make progress on
-        the things that are important to you.
+        Organize your daily routines with Todolist. Have peace of mind by adding
+        all your tasks to your to-do list (wherever you are or whatever device
+        you use). Todolist gives you the confidence that everything’s organized
+        and accounted for, so you can make progress on the things that are
+        important to you.
       </p>
       <Button type="btn btn-main btn-300" onClick={() => setIsOpen(true)}>
         Add a Task
@@ -25,7 +26,7 @@ export default function Welcome({ setReload }) {
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        setReload={setReload}
+        setReload={() => setReload(!reload)}
       />
     </section>
   );

@@ -1,19 +1,19 @@
 export function addTask(string) {
-  let localList = JSON.parse(localStorage.getItem("todos"));
+  let localList = JSON.parse(localStorage.getItem("tasks"));
   if (localList == null || undefined) {
     localList = [];
   }
   const newItem = new Todo(Date.now(), string, Date.now(), false);
   const newList = [...localList, newItem];
-  localStorage.setItem("todos", JSON.stringify(newList));
+  localStorage.setItem("tasks", JSON.stringify(newList));
 }
 
 export function clearList() {
-  localStorage.setItem("todos", JSON.stringify([]));
+  localStorage.setItem("tasks", JSON.stringify([]));
 }
 
 export function toggleTodo(todo) {
-  let localList = JSON.parse(localStorage.getItem("todos"));
+  let localList = JSON.parse(localStorage.getItem("tasks"));
 
   const otherTodos = localList.filter((item) => {
     return item.id !== todo.id;
@@ -27,7 +27,7 @@ export function toggleTodo(todo) {
   );
 
   const newList = [...otherTodos, updatedTodo];
-  localStorage.setItem("todos", JSON.stringify(newList));
+  localStorage.setItem("tasks", JSON.stringify(newList));
 }
 
 class Todo {

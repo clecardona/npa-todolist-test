@@ -30,14 +30,21 @@ const oneTodo = [
     checked: false,
   },
 ];
+const oneTodoChecked = [
+  {
+    id: 1632900398536,
+    title: "jump high",
+    timestamp: 1632900398536,
+    checked: true,
+  },
+];
 
 /** LIST TESTS **/
 
 test("The local storage has no data, first connexion to the app", () => {
   // Arrange
-  const fakeLocalStorageData = null;
   Storage.prototype.getItem = jest.fn(() => {
-    return JSON.stringify(fakeLocalStorageData);
+    return null;
   });
   render(<App />);
   // Act
@@ -47,9 +54,8 @@ test("The local storage has no data, first connexion to the app", () => {
 });
 
 test("The local storage has an empty list", () => {
-  const fakeLocalStorageData = [];
   Storage.prototype.getItem = jest.fn(() => {
-    return JSON.stringify(fakeLocalStorageData);
+    return JSON.stringify([]);
   });
   render(<App />);
 

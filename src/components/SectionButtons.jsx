@@ -4,12 +4,13 @@ import Button from "./shared/Button";
 import Modal from "./Modal";
 import { clearList } from "../utils/task";
 
-export default function SectionButtons({ setReload }) {
+export default function SectionButtons({ hook }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [reload, setReload] = hook;
 
   function clear() {
     clearList();
-    setReload();
+    setReload(!reload);
   }
 
   return (

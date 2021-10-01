@@ -1,20 +1,17 @@
-import React from "react";
-
 import IconSocial from "./shared/IconSocial";
-import iconsData from "../assets/icons.json";
-import contactData from "../assets/contact.json";
+import icons from "../assets/icons.json";
+import contact from "../assets/contact.json";
 
 export default function Footer() {
-  const contact = contactData[0];
-  const icons = iconsData[0];
-
+  const { linkedIn, github } = icons[0];
+  const { linkedInURL, githubURL, fullname } = contact[0];
   return (
     <footer>
       <ul>
-        <IconSocial icon={icons.linkedInURL} link={contact.linkedIn} />
-        <IconSocial icon={icons.githubURL} link={contact.github} />
+        <IconSocial icon={linkedIn} link={linkedInURL} />
+        <IconSocial icon={github} link={githubURL} />
       </ul>
-      <span>© 2021 • {contact.fullname}</span>
+      <span>© 2021 • {fullname}</span>
     </footer>
   );
 }

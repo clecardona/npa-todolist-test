@@ -2,7 +2,9 @@ import React from "react";
 import Button from "./shared/Button";
 import sort from "../assets/icns/sort.svg";
 
-export default function Sorter({ sorting, setSorting }) {
+export default function Sorter({ hook }) {
+  const [sorting, setSorting] = hook;
+
   return (
     <section className="section-sort">
       <img src={sort} alt="sort" />
