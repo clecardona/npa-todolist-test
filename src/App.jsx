@@ -1,4 +1,4 @@
-//External imports // good naming, but use "NPM Packages" as the name
+//NPM Packages
 import React, { useState, useEffect } from "react";
 
 //Local imports
@@ -25,10 +25,10 @@ export default function App() {
   // Const
   const rawData = localStorage.getItem("todos");
 
-  // Functions
+  // Hook
   useEffect(() => {
     setTodos(JSON.parse(rawData));
-  }, [reload, rawData, sorting]);
+  }, [rawData, sorting]);
 
   if (todos === null || undefined) {
     return <WelcomeScreen setReload={() => setReload(!reload)} />;
