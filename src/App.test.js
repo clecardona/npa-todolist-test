@@ -103,8 +103,7 @@ test("task-done presence after clicking the view tasks done button", () => {
 
 /** BUTTON TESTS **/
 
-//user clicks on "Add a Task" should open modal
-test("open modal", () => {
+test("Open the modal", () => {
   const fakeLocalStorageData = todos;
   Storage.prototype.getItem = jest.fn(() => {
     return JSON.stringify(fakeLocalStorageData);
@@ -120,59 +119,3 @@ test("open modal", () => {
   const btnClose = screen.getByText(/close/i);
   expect(modal).toContainElement(btnClose);
 });
-
-// user clicks on "Clear List"
-// user clicks on "Sort by title"
-// user clicks on "Sort by date added""
-
-/** FORM TESTS **/
-
-// user enter "" as title
-// user enter " " as title (a space)
-// user enter "ee" as title (2 letters only)
-
-/* test("add an item to the list", () => {
-  const fakeLocalStorageData = todos;
-
-  Storage.prototype.getItem = jest.fn(() => {
-    return JSON.stringify(fakeLocalStorageData);
-  });
-
-  const modal = document.createElement("div");
-  modal.setAttribute("id", "modal");
-  document.body.appendChild(modal);
-  render(<App />);
-
-  const buttonElement = screen.getByText(/add a task/i);
-  fireEvent.click(buttonElement);
-
-  const input = screen.getByPlaceholderText(/tell me what to do/i);
-  fireEvent.change(input, { target: { value: "1234" } });
-
-  const btnSubmit = screen.getByText(/add a new task/i);
-  fireEvent.click(btnSubmit);
- 
-  const newTask = screen.getByText(/1234/i);
-
-  expect(newTask).toBeInTheDocument();
-}); */
-
-// user clicks on "Clear List"
-// user clicks on "Check item"
-// user clicks on "Sort by title"
-// user clicks on "Sort by date added""
-
-/** FORM TESTS **/
-
-// user enter "" as title
-// user enter " " as title (a space)
-// user enter "ee" as title (2 letters only)
-
-//
-/* function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-} */
